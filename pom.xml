@@ -4,7 +4,7 @@
   <artifactId>SparkStreaming-Kafka-example</artifactId>
   <version>0.1-SNAPSHOT</version>
   <name>${project.artifactId}</name>
-  <description>My wonderfull scala app</description>
+  <description>SparkStreaming-Kafka-example wordcount</description>
   <inceptionYear>2010</inceptionYear>
   <licenses>
     <license>
@@ -48,6 +48,28 @@
       <version>2.0.M6-SNAP8</version>
       <scope>test</scope>
     </dependency>
+    <!-- Spark -->
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.10</artifactId>
+      <version>1.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming_2.10</artifactId>
+      <version>1.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming-kafka_2.10</artifactId>
+      <version>1.5.0</version>
+    </dependency>
+    <!-- Kafka -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka_2.10</artifactId>
+      <version> 0.8.2.0</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -89,6 +111,29 @@
             <include>**/*Suite.*</include>
           </includes>
         </configuration>
+      </plugin>
+      <!-- produce jar-with-dependencies -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass></mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
