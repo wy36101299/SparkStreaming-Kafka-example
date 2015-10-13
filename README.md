@@ -14,7 +14,7 @@ mvn clean package
 
 ##### start zookeeper cluster
 ``` sh
-bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/zkServer.sh start
 ```
 ##### start kafka cluster
 ``` sh
