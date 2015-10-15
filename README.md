@@ -16,9 +16,9 @@ mvn clean package
 ``` sh
 bin/zkServer.sh start
 ```
-##### start kafka cluster
+##### start kafka cluster every node
 ``` sh
-bin/kafka-server-start.sh config/server.properties
+JMX_PORT=999x bin/kafka-server-start.sh config/server.properties
 ```
 ##### start spark cluster
 ``` sh
